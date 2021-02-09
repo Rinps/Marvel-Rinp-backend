@@ -2,6 +2,7 @@
 const express = require("express");
 const formidable = require("express-formidable");
 const mongoose = require("mongoose");
+const MongoClient = require("mongodb").MongoClient;
 const axios = require("axios");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -13,9 +14,13 @@ app.use(formidable());
 app.use(cors());
 
 // Connect to the database
-mongoose.connect(process.env.DATABASE_ADRESS, {
+const mongoURI = process.env.DATABASE_ADRESS;
+const client = new MongoClient(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+});
+client.connect((err) => {
+  const collection = client.db("test").collection("devices");
 });
 
 // Every request will be made to the marvel-api, so we're storing the URL into a constant in order to have a clean code.
