@@ -24,7 +24,7 @@ client.connect((err) => {
 });
 
 // Every request will be made to the marvel-api, so we're storing the URL into a constant in order to have a clean code.
-const apiURL = "https://lereacteur-marvel-api.herokuapp.com";
+const apiURL = process.env.MARVEL_API_URL;
 
 // Define routes
 const characters = require("./routes/characters");
