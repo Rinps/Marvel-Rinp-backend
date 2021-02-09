@@ -8,6 +8,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 
+console.log("test");
 // Initialize server
 const app = express();
 app.use(formidable());
