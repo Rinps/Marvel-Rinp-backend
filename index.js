@@ -15,13 +15,7 @@ app.use(cors());
 
 // Connect to the database
 const mongoURI = process.env.DATABASE_ADRESS;
-const client = new MongoClient(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-client.connect((err) => {
-  const collection = client.db("test").collection("devices");
-});
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Every request will be made to the marvel-api, so we're storing the URL into a constant in order to have a clean code.
 const apiURL = process.env.MARVEL_API_URL;
@@ -41,6 +35,6 @@ app.all("*", (req, res) => {
 });
 
 // Lauch the server
-app.listen(process.env.PORT, () => {
+app.listen(3111, () => {
   console.log("Let's go Marvel!");
 });
