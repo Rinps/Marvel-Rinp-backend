@@ -35,6 +35,6 @@ app.all("*", (req, res) => {
 });
 
 // Lauch the server
-app.listen(3111, () => {
+app.listen(process.env.PORT, () => {
   console.log("Let's go Marvel!");
 });
