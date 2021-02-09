@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 // Every request will be made to the marvel-api, so we're storing the URL into a constant in order to have a clean code.
-const apiURL = "https://lereacteur-marvel-api.herokuapp.com";
+const apiURL = process.env.MARVEL_API_URL;
 
 // Search through the API comics database. Can contain one of these BODY parameters: limit (number of comics the the API has to return), skip (number of comics we're skipping, this must be inferior to the limit parameter) or title
 router.get("/comics/search/", async (req, res) => {
