@@ -13,7 +13,7 @@ app.use(formidable());
 app.use(cors());
 
 // Connect to the database
-mongoose.connect("mongodb://localhost:27017/marvel-api", {
+mongoose.connect(process.env.DATABASE_ADRESS, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
